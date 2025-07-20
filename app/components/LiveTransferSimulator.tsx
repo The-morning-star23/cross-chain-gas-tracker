@@ -1,11 +1,11 @@
+// Component: LiveTransferSimulator - Compares simulated ETH transfer costs across chains visually
 'use client'
 
 import { useGasStore } from '@/store/useGasStore'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { useState } from 'react'
 import Image from 'next/image'
 
 const CHAINS = ['ethereum', 'polygon', 'arbitrum'] as const
+
 const CHAIN_INFO = {
   ethereum: {
     label: 'Ethereum',
