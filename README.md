@@ -39,14 +39,15 @@ graph LR
   N --> O[Candlestick Chart]
   O --> P[Lightweight Charts]
   M --> P
+```
+Getting Started
 
-🚀 Getting Started
 1. Clone and install dependencies
 
 git clone https://github.com/The-morning-star23/cross-chain-gas-tracker.git
 cd cross-chain-gas-tracker
 npm install
- 
+
 2. Add .env.local
 
 NEXT_PUBLIC_ETHEREUM_RPC=wss://mainnet.infura.io/ws/v3/YOUR_KEY
@@ -58,7 +59,9 @@ NEXT_PUBLIC_UNISWAP_POOL=0x88e6A0c2dDD26FEEb64F039a2c41296FcB3f5640
 
 npm run dev
 
-🛠 Tech Stack
+
+ 🛠 Tech Stack
+
 Next.js 15
 
 React 19
@@ -73,6 +76,8 @@ Lightweight Charts (candlestick rendering)
 
 Infura (WebSocket RPC)
 
+
 📝 License
+
 MIT License © 2025
-Made with 💙 by Shubh Kumar
+Made with 💙 by [Shubh Kumar]
