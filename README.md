@@ -36,7 +36,7 @@ graph LR
   O --> P[Lightweight Charts]
   M --> P
 
-🚀 Getting Started
+Getting Started
 
 1. Clone and install dependencies
 
