@@ -1,3 +1,4 @@
+// Renders a table comparing base fee, priority fee, and USD gas cost across chains
 'use client'
 import { useGasStore } from '@/store/useGasStore'
 
@@ -19,19 +20,20 @@ export default function GasComparisonTable() {
       <table className="min-w-[600px] text-sm text-left border-collapse text-gray-800 dark:text-white">
         <thead className="bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-white transition-colors">
           <tr>
-            <th className="px-4 py-2 border-b">Chain</th>
+            <th className="px-4 py-2 border-b rounded-tl-lg">Chain</th>
             <th className="px-4 py-2 border-b">Base Fee (Gwei)</th>
             <th className="px-4 py-2 border-b">Priority Fee (Gwei)</th>
-            <th className="px-4 py-2 border-b">Gas Cost (USD)</th>
+            <th className="px-4 py-2 border-b rounded-tr-lg">Gas Cost (USD)</th>
           </tr>
         </thead>
         <tbody>
           {CHAINS.map((chain) => {
             const { baseFee, priorityFee } = chains[chain]
             const gasCost = (baseFee + priorityFee) * 21000
-            const totalCost = mode === 'live'
-              ? gasCost * usdPrice
-              : (gasCost + simulatedValue * 1e9) * usdPrice
+            const totalCost =
+              mode === 'live'
+                ? gasCost * usdPrice
+                : (gasCost + simulatedValue * 1e9) * usdPrice
 
             return (
               <tr

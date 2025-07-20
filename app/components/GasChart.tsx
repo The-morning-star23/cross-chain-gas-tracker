@@ -1,4 +1,6 @@
+// Renders real-time gas price chart (candlestick) for a selected chain using lightweight-charts
 'use client'
+
 import { useEffect, useRef } from 'react'
 import {
   createChart,
@@ -66,8 +68,10 @@ export default function GasChart({ chain }: Props) {
   }, [history, chain, theme])
 
   return (
-    <div className="p-4 bg-white dark:bg-zinc-900 text-black dark:text-white shadow rounded-xl w-full max-w-4xl transition-colors">
-      <h2 className="text-lg font-semibold mb-2 capitalize">{chain} Gas Price Chart</h2>
+    <div className="p-4 bg-white dark:bg-zinc-900 shadow rounded-xl w-full max-w-4xl transition-colors">
+      <h2 className="text-lg font-semibold mb-2 capitalize text-center dark:text-white">
+        {chain} Gas Price Chart
+      </h2>
       <div ref={containerRef} className="w-full h-[300px]" />
     </div>
   )
