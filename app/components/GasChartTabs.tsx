@@ -1,4 +1,5 @@
 // UI component to switch between gas charts for Ethereum, Polygon, and Arbitrum
+
 'use client'
 
 import { useState } from 'react'
@@ -13,15 +14,15 @@ export default function GasChartTabs() {
   return (
     <div className="w-full max-w-4xl mx-auto">
       {/* Chain Selector Buttons */}
-      <div className="flex flex-wrap gap-2 mb-4 justify-center sm:justify-start">
+      <div className="flex flex-wrap justify-center sm:justify-start gap-3 mb-5">
         {CHAINS.map((chain) => (
           <button
             key={chain}
             onClick={() => setSelected(chain)}
-            className={`px-4 py-2 rounded-lg border text-sm font-medium transition-colors duration-200
+            className={`px-5 py-2.5 rounded-xl text-sm font-medium border transition-colors duration-200
               ${selected === chain
-                ? 'bg-gray-900 text-white border-gray-900'
-                : 'bg-white text-gray-800 border-gray-300 hover:bg-gray-100 dark:bg-gray-700 dark:text-white dark:border-gray-600 dark:hover:bg-gray-600'
+                ? 'bg-black text-white border-black shadow-md'
+                : 'bg-gray-100 text-gray-800 border-gray-300 hover:bg-gray-200 dark:bg-zinc-800 dark:text-white dark:border-zinc-700 dark:hover:bg-zinc-700'
               }`}
           >
             {chain.charAt(0).toUpperCase() + chain.slice(1)}
@@ -29,8 +30,8 @@ export default function GasChartTabs() {
         ))}
       </div>
 
-      {/* Selected Chain's Chart */}
-      <div className="bg-white dark:bg-gray-900 rounded-xl p-4 shadow-sm">
+      {/* Chart Container */}
+      <div className="bg-white dark:bg-zinc-900 rounded-2xl p-5 shadow-sm transition-colors">
         <GasChart chain={selected} />
       </div>
     </div>

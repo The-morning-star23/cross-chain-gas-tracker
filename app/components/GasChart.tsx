@@ -1,4 +1,5 @@
 // Renders real-time gas price chart (candlestick) for a selected chain using lightweight-charts
+
 'use client'
 
 import { useEffect, useRef } from 'react'
@@ -27,19 +28,28 @@ export default function GasChart({ chain }: Props) {
 
     const chart = createChart(container, {
       width: container.clientWidth,
-      height: 300,
+      height: 320,
       layout: {
-        textColor: isDark ? '#eee' : '#000',
-        background: { color: isDark ? '#1e1e1e' : '#fff' },
+        background: { color: isDark ? '#1a1a1a' : '#ffffff' },
+        textColor: isDark ? '#d1d5db' : '#111827',
       },
       grid: {
-        vertLines: { color: isDark ? '#444' : '#eee' },
-        horzLines: { color: isDark ? '#444' : '#eee' },
+        vertLines: { color: isDark ? '#374151' : '#e5e7eb' },
+        horzLines: { color: isDark ? '#374151' : '#e5e7eb' },
       },
-      timeScale: { timeVisible: true, secondsVisible: false },
+      timeScale: {
+        timeVisible: true,
+        secondsVisible: false,
+      },
     })
 
-    const candleSeries = chart.addCandlestickSeries()
+    const candleSeries = chart.addCandlestickSeries({
+      upColor: '#16a34a',
+      downColor: '#dc2626',
+      borderVisible: false,
+      wickUpColor: '#16a34a',
+      wickDownColor: '#dc2626',
+    })
 
     const candles: CandlestickData[] = history.map((point) => {
       const time = Math.floor(point.timestamp / 1000) as Time
@@ -68,11 +78,11 @@ export default function GasChart({ chain }: Props) {
   }, [history, chain, theme])
 
   return (
-    <div className="p-4 bg-white dark:bg-zinc-900 shadow rounded-xl w-full max-w-4xl transition-colors">
-      <h2 className="text-lg font-semibold mb-2 capitalize text-center dark:text-white">
+    <div className="p-5 rounded-2xl shadow-md bg-white dark:bg-zinc-900 w-full max-w-4xl transition-colors">
+      <h2 className="text-xl font-semibold mb-4 text-center capitalize dark:text-white">
         {chain} Gas Price Chart
       </h2>
-      <div ref={containerRef} className="w-full h-[300px]" />
+      <div ref={containerRef} className="w-full h-[320px] rounded-md" />
     </div>
   )
 }
