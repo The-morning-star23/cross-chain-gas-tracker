@@ -7,16 +7,14 @@ import PriceWidget from './components/PriceWidget'
 import SimulationControls from './components/SimulationControls'
 import GasChartTabs from './components/GasChartTabs'
 import GasComparisonTable from './components/GasComparisonTable'
-import ThemeToggle from './components/ThemeToggle'
 import LiveTransferSimulator from './components/LiveTransferSimulator'
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center w-full px-4 py-8 gap-10 bg-background text-foreground">
+    <main className="flex flex-col items-center w-full px-4 py-8 gap-10 bg-gray-50 text-gray-900">
       {/* Header */}
       <div className="flex justify-between items-center w-full max-w-6xl">
         <h1 className="text-3xl font-extrabold tracking-tight">Cross-Chain Gas Tracker</h1>
-        <ThemeToggle />
       </div>
 
       {/* Price and Controls */}

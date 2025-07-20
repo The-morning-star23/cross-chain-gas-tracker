@@ -17,10 +17,10 @@ export default function GasComparisonTable() {
   const chains = useGasStore((s) => s.chains)
 
   return (
-    <div className="w-full max-w-4xl mt-10 bg-white dark:bg-zinc-900 shadow-lg rounded-2xl overflow-x-auto transition-colors">
-      <table className="min-w-[600px] w-full text-sm text-left border-separate border-spacing-0 text-gray-800 dark:text-white">
+    <div className="w-full max-w-4xl mt-10 bg-white shadow-xl rounded-2xl overflow-x-auto border border-gray-200">
+      <table className="min-w-[600px] w-full text-sm text-left text-gray-800">
         <thead>
-          <tr className="bg-gray-100 dark:bg-zinc-800 text-gray-700 dark:text-white">
+          <tr className="bg-gray-100 text-gray-700">
             <th className="px-6 py-3 font-semibold text-sm rounded-tl-2xl">Chain</th>
             <th className="px-6 py-3 font-semibold text-sm">Base Fee (Gwei)</th>
             <th className="px-6 py-3 font-semibold text-sm">Priority Fee (Gwei)</th>
@@ -40,15 +40,15 @@ export default function GasComparisonTable() {
               <tr
                 key={chain}
                 className={`transition-colors duration-200 ${
-                  i % 2 === 0
-                    ? 'bg-white dark:bg-zinc-900'
-                    : 'bg-gray-50 dark:bg-zinc-800'
-                } hover:bg-gray-100 dark:hover:bg-zinc-700`}
+                  i % 2 === 0 ? 'bg-white' : 'bg-gray-50'
+                } hover:bg-blue-50`}
               >
                 <td className="px-6 py-3 font-medium">{CHAIN_LABELS[chain]}</td>
                 <td className="px-6 py-3">{baseFee.toFixed(2)}</td>
                 <td className="px-6 py-3">{priorityFee.toFixed(2)}</td>
-                <td className="px-6 py-3 font-semibold">${totalCost.toFixed(4)}</td>
+                <td className="px-6 py-3 font-semibold text-blue-600">
+                  ${totalCost.toFixed(4)}
+                </td>
               </tr>
             )
           })}

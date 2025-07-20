@@ -14,15 +14,16 @@ export default function GasChartTabs() {
   return (
     <div className="w-full max-w-4xl mx-auto">
       {/* Chain Selector Buttons */}
-      <div className="flex flex-wrap justify-center sm:justify-start gap-3 mb-5">
+      <div className="flex flex-wrap justify-center sm:justify-start gap-3 mb-6">
         {CHAINS.map((chain) => (
           <button
             key={chain}
             onClick={() => setSelected(chain)}
-            className={`px-5 py-2.5 rounded-xl text-sm font-medium border transition-colors duration-200
-              ${selected === chain
-                ? 'bg-black text-white border-black shadow-md'
-                : 'bg-gray-100 text-gray-800 border-gray-300 hover:bg-gray-200 dark:bg-zinc-800 dark:text-white dark:border-zinc-700 dark:hover:bg-zinc-700'
+            className={`px-5 py-2.5 rounded-xl text-sm font-semibold border transition-all
+              ${
+                selected === chain
+                  ? 'bg-blue-600 text-white border-blue-600 shadow-md'
+                  : 'bg-gray-100 text-gray-800 border-gray-300 hover:bg-gray-200'
               }`}
           >
             {chain.charAt(0).toUpperCase() + chain.slice(1)}
@@ -31,7 +32,7 @@ export default function GasChartTabs() {
       </div>
 
       {/* Chart Container */}
-      <div className="bg-white dark:bg-zinc-900 rounded-2xl p-5 shadow-sm transition-colors">
+      <div className="bg-white rounded-2xl p-6 shadow-md border border-gray-200">
         <GasChart chain={selected} />
       </div>
     </div>
